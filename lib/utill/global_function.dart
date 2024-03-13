@@ -9,7 +9,7 @@ class GlobalFunction {
     return math.sqrt(x * x + y * y);
   }
 
-  // 두 점을 이용하여 선분을 나타내고, 그 선분과 주어진 원의 관계를 검사하여 선분이 원과 교차하는지 여부를 확인
+  // 두 점(px, py), (cx, cy)을 이용하여 거리를 구하고, 그 거리와 범위(r)를 비교하여 교차되는지 확인
   static bool lineCircle(double x1, double y1, double x2, double y2, double cx, double cy, double r) {
     final double lineLength = distance(x1, y1, x2, y2);
     final double p = (((cx - x1) * (x2 - x1)) + ((cy - y1) * (y2 - y1))) / math.pow(lineLength, 2);
