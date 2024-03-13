@@ -12,6 +12,8 @@ class MainController extends GetxController {
   late double moveX = initPosition;
   late double moveY = initPosition;
 
+  bool isClick = false; // 마우스 클릭 여부
+
   late final double x1;
   late double y1;
   late final double x2;
@@ -31,7 +33,7 @@ class MainController extends GetxController {
   }
 
   void init(Size screen) {
-    const double xGap = 20;
+    const double xGap = 0;
     const double yGap = 20;
     final int total = ((screen.height - yGap) / yGap).ceil();
 
@@ -53,25 +55,10 @@ class MainController extends GetxController {
         ),
       );
     }
-
-    // x1 = xGap;
-    // y1 = screen.height / 2;
-    // x2 = screen.width - xGap;
-    // y2 = screen.height / 2;
-    //
-    // middleX = ((x2 - x1) / 2) + x1;
-    // middleY = ((y2 - y1) / 2) + y1;
-    //
-    // strings = [
-    //   BouncingString(
-    //     start: Point(x: x1, y: y1, ox: x1, oy: y1),
-    //     middle: Point(x: middleX, y: middleY, ox: middleX, oy: middleY),
-    //     end: Point(x: x2, y: y2, ox: x2, oy: y2),
-    //   ),
-    // ];
   }
 
   void onPanStart(DragStartDetails details) {
+    isClick = true;
     moveX = details.localPosition.dx;
     moveY = details.localPosition.dy;
   }
@@ -82,6 +69,7 @@ class MainController extends GetxController {
   }
 
   void onPanEnd(DragEndDetails details) {
+    isClick = false;
     moveX = initPosition;
     moveY = initPosition;
   }

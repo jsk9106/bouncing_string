@@ -59,7 +59,7 @@ class StringPainter extends CustomPainter {
       moveY,
       controller.detect,
     )) {
-      controller.detect = 80;
+      controller.detect = 150;
       final double tx = (string.middle.ox + moveX) / 2;
       final double ty = moveY;
       string.middle.vx = tx - string.middle.x;
