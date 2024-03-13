@@ -37,6 +37,7 @@ class MainPage extends StatelessWidget {
                   return GetBuilder<MainController>(
                     initState: (state) => controller.init(screen),
                     builder: (_) {
+
                       return MouseRegion(
                         cursor: controller.isClick ? SystemMouseCursors.none : SystemMouseCursors.basic,
                         child: Stack(

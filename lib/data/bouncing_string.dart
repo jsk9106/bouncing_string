@@ -7,11 +7,13 @@ class BouncingString {
     required this.start,
     required this.middle,
     required this.end,
+    this.detect = 10,
   });
 
   Point start;
   Point middle;
   Point end;
+  double detect;
 
   Point getPoint(int index) {
     switch (index) {

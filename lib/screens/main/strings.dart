@@ -1,11 +1,11 @@
 import 'package:bouncing_string/config/constants.dart';
 import 'package:bouncing_string/data/bouncing_string.dart';
-import 'package:bouncing_string/screens/main/controllers/strings_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
+import '../../utill/global_function.dart';
 
 class Strings extends StatelessWidget {
-  Strings({
+  const Strings({
     super.key,
     required this.strings,
     required this.moveX,
@@ -15,8 +15,6 @@ class Strings extends StatelessWidget {
   final List<BouncingString> strings;
   final double moveX;
   final double moveY;
-
-  final StringsController controller = Get.put(StringsController());
 
   @override
   Widget build(BuildContext context) {
@@ -46,26 +44,24 @@ class StringPainter extends CustomPainter {
   final double moveX;
   final double moveY;
 
-  final StringsController controller = Get.find<StringsController>();
-
   @override
   void paint(Canvas canvas, Size size) {
-    if (controller.lineCircle(
+    if (GlobalFunction.lineCircle(
       string.start.x,
       string.start.y,
       string.end.x,
       string.end.y,
       moveX,
       moveY,
-      controller.detect,
+      string.detect,
     )) {
-      controller.detect = 150;
+      string.detect = 150;
       final double tx = (string.middle.ox + moveX) / 2;
       final double ty = moveY;
       string.middle.vx = tx - string.middle.x;
       string.middle.vy = ty - string.middle.y;
     } else {
-      controller.detect = 10;
+      string.detect = 10;
       final double tx = string.middle.ox;
       final double ty = string.middle.oy;
       string.middle.vx += tx - string.middle.x;
