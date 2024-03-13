@@ -55,7 +55,7 @@ class StringPainter extends CustomPainter {
       moveY,
       string.detect,
     )) {
-      string.detect = 150;
+      string.detect = 300;
       final double tx = (string.middle.ox + moveX) / 2;
       final double ty = moveY;
       string.middle.vx = tx - string.middle.x;
